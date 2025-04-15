@@ -5,7 +5,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from sklearn.manifold import MDS
 import numpy as np
-import seaborn as sns  # Импортируем seaborn для палитры, если потребуется
+import seaborn as sns
 
 # Ввод данных
 m = int(input("Введите количество заказов: "))
