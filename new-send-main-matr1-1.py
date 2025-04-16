@@ -125,11 +125,12 @@ def genetic_algorithm(n, orders_indices, warehouse_index, dist_matrix, speed, wo
         # Кроссовер
         for i in range(0, pop_size, 2):
             if i + 1 < pop_size and random.random() < 0.8:
-                point1 = random.randint(1, len(orders_indices) - 2)
-                point2 = random.randint(point1 + 1, len(orders_indices) - 1)
-                parent1, parent2 = new_population[i], new_population[i + 1]
-                new_population[i] = parent1[:point1] + parent2[point1:point2] + parent1[point2:]
-                new_population[i + 1] = parent2[:point1] + parent1[point1:point2] + parent2[point2:]
+                if len(orders_indices) > 2:
+                    point1 = random.randint(1, len(orders_indices) - 2)
+                    point2 = random.randint(point1 + 1, len(orders_indices) - 1)
+                    parent1, parent2 = new_population[i], new_population[i + 1]
+                    new_population[i] = parent1[:point1] + parent2[point1:point2] + parent1[point2:]
+                    new_population[i + 1] = parent2[:point1] + parent1[point1:point2] + parent2[point2:]
         
         # Мутация
         for chrom in new_population:
